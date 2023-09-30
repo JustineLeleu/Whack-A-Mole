@@ -1,0 +1,67 @@
+*
+{
+    margin: 0;
+}
+
+#canvas 
+{
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+}
+
+.board
+{
+    position: fixed;
+    left: 40%;
+    right: 40%;
+    top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 26px;
+    color: green;
+}
+
+#start-menu
+{
+    position: absolute;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 5px white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 100vh;
+    width: 100vw;
+    font-size: 60px;
+}
+
+#start-button, #restart-button
+{
+    font-size: 36px;
+}
+
+#end-menu
+{
+    position: absolute;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 5px white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 100vh;
+    width: 100vw;
+    font-size: 60px;
+
+    visibility: hidden;
+}
+
+.score
+{
+    display: flex;
+}

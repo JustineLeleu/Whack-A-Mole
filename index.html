@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wack A Mole game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js"></script> 
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script defer src="assets/script/createScene.js"></script>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div class="board">
+        <div id="time">00:00</div>
+        <div id="score">0</div>
+    </div>
+
+    <section id="start-menu">
+        <h1 class="title">Whack A Mole</h1>
+        <button id="start-button">Start Game</button>
+    </section>
+
+    <section id="end-menu">
+        <h2 class="title">Game Over</h2>
+        <div class="score">
+            <p>Your score</p>
+            <div id="final-score">10</div>
+        </div>
+        <button id="restart-button">Try again</button>
+    </section>
+
+    <script src="assets/script/menus.js"></script>
+    <script src="assets/script/mole.js"></script>
+    <script src="assets/script/main.js"></script>
+</body>
+</html>
