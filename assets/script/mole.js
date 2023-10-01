@@ -20,7 +20,7 @@ class Mole
     // animations mole up and down
     animUp(pos)
     {
-        let outTime = (Math.floor(Math.random() * 3) + 1) * 1000;
+        let outTime = ((Math.random() * 0.5) + 0.4) * 1000;
 
         this.upTimer = setInterval(() => {
             this.mesh.position.y += 0.01
@@ -60,9 +60,11 @@ class Mole
         if (intersection.length > 0 && this.isOut)
         {
             score += 1
+            audioScore.play();
             scoreDisplay.textContent = score;
             clearInterval(this.upTimer);
             clearTimeout(this.waitTimer);
+            clearInterval(this.downTimer);
             this.animDown();
         }
     }

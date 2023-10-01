@@ -1,3 +1,4 @@
+let isPlaying = false;
 let timeDisplay = document.getElementById("time");
 let scoreDisplay = document.getElementById("score");
 let initTime;
@@ -7,6 +8,15 @@ let showMolesTimer;
 let moles = [];
 let molesOut = [];
 let score = 0;
+let audioMenu = new Audio('assets/sounds/game-music-loop.mp3');
+audioMenu.loop = true;
+audioMenu.autoplay = true;
+let audioGame = new Audio('assets/sounds/8bit-music.mp3');
+audioGame.loop = true;
+let audioStart = new Audio('assets/sounds/game-start.mp3');
+let audioEnd = new Audio('assets/sounds/game-over.mp3');
+let audioPunch = new Audio('assets/sounds/shooting-sound.mp3');
+let audioScore = new Audio('assets/sounds/score.mp3');
 
 // called when game start and count down untill the game is over
 function gameTimer()
@@ -24,8 +34,8 @@ function gameTimer()
     {
         clearInterval(playTimer);
         clearTimeout(showMolesTimer);
-        resetGame();
         endGame();
+        resetGame();
     }
 }
 
@@ -51,14 +61,19 @@ function showMole()
 // click event set and call the raycast for moles
 function onClickWindow(event)
 {
-    pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    if(isPlaying)
+    {
+        audioPunch.play();
 
-    raycaster.setFromCamera( pointer, camera );
-    
-    moles.forEach(element => {
-        element.raycast();
-    });
+        pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+        pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+        raycaster.setFromCamera( pointer, camera );
+        
+        moles.forEach(element => {
+            element.raycast();
+        });
+    }
 }
 
 // reset game at the end
@@ -74,4 +89,5 @@ function resetGame()
     molesOut = [];
     scoreDisplay.textContent = "0";
     timeDisplay.textContent = "00:00";
+    score = 0;
 }

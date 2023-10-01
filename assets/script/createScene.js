@@ -41,17 +41,19 @@ function init()
 
     renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
+    
+    camera.position.z = 1.5;
+    camera.position.y = 1;
+    camera.position.x = 1;
+    camera.rotation.x = -0.5;
+    camera.rotation.y = 0.5;
 
-    camera.position.z = 0.63;
-    camera.position.y = 0.8;
-    camera.rotation.x -= 0.9;
-
-    const topLight = new THREE.DirectionalLight(0xffffff, 1);
+    const topLight = new THREE.DirectionalLight(0xffffff, 0.8);
     topLight.position.set(500, 500, 500);
-    topLight.castShadow = true;
+    //topLight.castShadow = true;
     scene.add(topLight);
 
-    const ambientLight = new THREE.AmbientLight(0x333333, 5);
+    const ambientLight = new THREE.AmbientLight(0x333333, 3);
     scene.add(ambientLight);
 }
 
